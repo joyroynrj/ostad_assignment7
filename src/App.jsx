@@ -22,17 +22,27 @@ function TodoList() {
 
   return (
     <div className="toDoList">
-      <h2>To-Do List</h2>
+      <h2>Ostad Assignment7  - To-Do List</h2>
       <input type="text" value={task} onChange={handleTaskChange} />
       <button onClick={handleAddTask}>Add Task</button>
-      <ul>
+
+      <table className="toDoItemTable">
+        <thead>
+          <tr>
+            <td>Item Name</td>
+            <td>Action</td>
+          </tr>
+        </thead>
+        <tbody>
         {taskList.map((task, index) => (
-          <li key={index}>
-            {task}
-            <button onClick={() => handleDeleteTask(index)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+            <tr key={index}>
+              <td>{task}</td>
+              <td><button onClick={() => handleDeleteTask(index)}>Delete</button></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
     </div>
   );
 }
